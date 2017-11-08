@@ -1,0 +1,25 @@
+div {
+  width: 100px;
+  height: 100px;
+  transition: all 1s linear;
+  margin: 0 auto;
+  background-color: red;
+}
+
+button {
+  display: block;
+  margin: 50px auto;
+}
+
+section, header {
+  padding: 50px 0;
+  overflow: hidden;
+  + section {
+    border-top: 1px solid #000000
+  }
+}
+
+body {
+  text-align: center;
+}
+

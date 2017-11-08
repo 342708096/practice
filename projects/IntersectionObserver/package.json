@@ -1,0 +1,28 @@
+{
+  "version": "4.9",
+  "chunks": [
+    {
+      "name": "{name}",
+      "entry":"js/index.js"
+    },
+    {
+      "name": "css",
+      "entry":"scss/index.scss"
+    },
+    {
+      "name": "ress",
+      "entry":"@node_modules/ress"
+    }
+  ],
+  "template": [
+    {
+      "filename": "index.html",
+      "chunks": ["ress", "css", "{name}"],
+      "autoOpenBrowser": true
+    }
+  ],
+  "publicPath": "/",
+  "CDN": "/",
+  "proxy": {
+  }
+}

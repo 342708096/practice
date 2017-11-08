@@ -1,0 +1,22 @@
+.swiper-container {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swiper-item {
+  width: 100% !important;
+  height: 100% !important;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

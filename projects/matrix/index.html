@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<header>
+  matrix( <br>
+  x'的x参数, y'的x参数, <br>
+  x'的y参数, y'的y参数, <br>
+  x'的常量,  y'的常量) <br>
+  <br>
+  最终 <br>
+    x' = p1 * x + p3 * y + p5 <br>
+    y' = p2 * x + p4 * y + p6 <br>
+</header>
+
+
+<section>
+  <div></div>
+  <button data-matrix="matrix(1, 0, 0, 1, 30, 30)" >平移(30, 30) matrix(1, 0, 0, 1, 30, 30)</button>
+</section>
+
+<section>
+  <div></div>
+  <button data-matrix="matrix(1, -0.5, 0, 0.5, 0, 0)" >拉伸 matrix(1, -0.5, 0, 0.5, 0, 0)</button>
+</section>
+
+<section>
+  <div style="background: linear-gradient(to right, red 0%, green 100%);"></div>
+  <button data-matrix="matrix(-1, 0, 0, 1, 0, 0)">镜像 matrix(1, -0.5, 0, 0.5, 0, 0)</button>
+</section>
+</body>
+</html>
