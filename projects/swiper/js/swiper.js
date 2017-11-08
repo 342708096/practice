@@ -33,16 +33,15 @@ export default class Swiper {
     if (!this._default.itemNum) {
       this._default.itemNum = getChildren(this.$wrapper).length
     }
-    this._init()
+
+    setStyle(this.$wrapper, {
+      '-webkit-flex-direction': this._default.direction,
+      'flex-direction': this._default.direction
+    })
+
     if (this._default.canTouch) {
       this._bindEvent()
     }
-  }
-
-  _init() {
-    setStyle(this.$wrapper, {
-      'flex-direction': this._default.direction
-    })
   }
 
   get _offset() {
@@ -91,14 +90,15 @@ export default class Swiper {
     }
     this._index = i
 
-    let duration = Math.abs(prevIndex - i) * this._default.duration
+    let duration = Math.max(Math.abs(prevIndex - i) * this._default.duration, 100) + 'ms'
     let transform = this._endTransform
 
-    this.$wrapper.style['-webkit-transition'] = duration + 'ms'
-    this.$wrapper.style.transition = duration + 'ms'
-
-    this.$wrapper.style['-webkit-transform'] = transform
-    this.$wrapper.style.transform = transform
+    setStyle(this.$wrapper, {
+      '-webkit-transition': duration,
+      transition: duration,
+      '-webkit-transform': transform,
+      transform
+    })
   }
 
   _bindEvent() {
@@ -106,8 +106,10 @@ export default class Swiper {
       this._start.x = e.changedTouches[0].pageX
       this._start.y = e.changedTouches[0].pageY
 
-      this.$wrapper.style['-webkit-transition'] = 'none'
-      this.$wrapper.style.transition = 'none'
+      setStyle(this.$wrapper, {
+        '-webkit-transition': 'none',
+        transition: 'none'
+      })
 
       e.preventDefault()
       e.stopPropagation()
@@ -117,9 +119,12 @@ export default class Swiper {
       this._move.x = e.changedTouches[0].pageX
       this._move.y = e.changedTouches[0].pageY
 
-      this.$wrapper.style['-webkit-transform'] = this._moveTransform
-      this.$wrapper.style.transform = this._moveTransform
+      let moveTransform = this._moveTransform
 
+      setStyle(this.$wrapper, {
+        '-webkit-transform': moveTransform,
+        transform: moveTransform
+      })
       e.preventDefault()
       e.stopPropagation()
     }, false)
